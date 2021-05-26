@@ -16,33 +16,42 @@ async function datos(){
             
             imprimir.innerHTML += `
                 
-               
-                <div class="profile-card-6"><img src="${element.img}" class="img img-responsive">
-                    <div class="profile-name">
-                    
-                        <br>${element.producto}</div>
-                   
-                    <div class="profile-overview">
-                        <div class="profile-overview">
-                            <div class="row text-center">
-                                <div class="col-xs-4">
-                                    <h3>${element.precio}</h3>
-                                    <p>Precio</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="add-to-cart">
-               
-            </div>
-              
-            </div>
-                </div>
+            <section class="our-publication pt-100 pb-70">
+            <div class="container">
+            <div class="row">
+            <div class=" col-sm-4 col-lg-11  ">
+                <div class="single-publication">
+            
+                  
+                            <figure><a href="# "><img src="${element.img}" alt="Publication Image "></a>
+                                <ul>
+                                    <li><a href="# " title="Add to Favorite "><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="# " title="Add to Compare "><i class="fa fa-refresh"></i></a></li>
+                                    <li><a href="# " title="Quick View "><i class="fa fa-search"></i></a></li>
+                                </ul>
+                            </figure>
+                            <div class="publication-content"><span class="category">${element.producto}</span>
 
-                <button button onclick="formulario(${element.precio})" clientIdMode="static"   id="modal" class="default-btn" href="#"  data-toggle="modal" data-target="#exampleModal">Add to Cart</button></div>
-        
+                            
+                                
+                                <ul>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                    <li><i class="icofont-star"></i></li>
+                                </ul>
+                                <h4 class="price">${element.precio}</h4>
+                            </div>
+                            <div class="add-to-cart" onclick="formulario('${ element.precio}','${element.producto}')" ><a class="default-btn" href="# " data-toggle="modal" data-target="#exampleModal">Add to Cart</a></div>
+                        </div>
+                    </div> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                
                 `
         
         });
@@ -51,9 +60,10 @@ async function datos(){
 
 }
 
+
  
-function formulario(e){
-    console.log("jajajjajaja0",e);
+function formulario(e,a){
+    console.log("Entro ++",e,a);
     producto.innerHTML = `
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -64,6 +74,8 @@ function formulario(e){
                     <span aria-hidden="true">×</span>
                   </button>
                     </div>
+
+   
                     <div class="modal-body">
                         <section>
 
@@ -89,12 +101,12 @@ function formulario(e){
                                                     <div>
                                                         <div class="d-flex justify-content-between">
                                                             <div>
-                                                                <h5>Blue denim shirt</h5>
+                                                                <h5>`+a+`</h5>
                                                                 <p class="mb-3 text-muted text-uppercase small">Precio</p>
                                                             </div>
                                                             <div>
                                                                 <div class="def-number-input number-input safari_only mb-0 w-100">
-                                                                    <label class="quantity" min="0" name="quantity" value="1" type="number">1</label>
+                                                                    <label class="quantity" min="0" name="quantity" value="1" type="number"></label>
                                                                 </div>
 
                                                             </div>
@@ -115,7 +127,7 @@ function formulario(e){
                                     <div class="mb-3">
                                         <div class="pt-4">
 
-                                            <h5 class="mb-4">Datos Pago</h5>
+                                            <h5 class="mb-4" >Datos Pago</h5>
 
                                             <form action="http://localhost:8081/Administracion" method="GET">
                                             <label for="fname">Bancos De Deposito</label><br>
@@ -202,6 +214,8 @@ function formulario(e){
                 </div>
             </div>
         </div>
+
+        
     
     
     
